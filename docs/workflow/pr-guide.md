@@ -2,7 +2,7 @@
 
 ## Contributing Rules
 
-All contributions to GreemDev/Ryujinx repository are made via pull requests (PRs) rather than through direct commits. The pull requests are reviewed and merged by the maintainers after a review and at least two approvals from the core development team.
+All contributions to theonlycasper/ryubing-downstream repository are made via pull requests (PRs) rather than through direct commits. The pull requests are reviewed and merged by the maintainers after a review and at least two approvals from the core development team.
 
 To merge pull requests, you must have write permissions in the repository.
 
