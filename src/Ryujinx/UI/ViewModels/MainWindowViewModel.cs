@@ -1747,7 +1747,7 @@ namespace Ryujinx.Ava.UI.ViewModels
                 string titleId = AppHost.Device.Processes.ActiveApplication.ProgramIdText.ToUpper();
                 AmiiboWindow window = new(ShowAll, LastScannedAmiiboId, titleId);
 
-                await window.ShowDialog(Window);
+                await StyleableAppWindow.ShowAsync(window);
 
                 if (window.IsScanned)
                 {

@@ -91,11 +91,14 @@ namespace Ryujinx.Ava.UI.Controls
         public async void OpenCheatManager_Click(object sender, RoutedEventArgs args)
         {
             if (sender is MenuItem { DataContext: MainWindowViewModel { SelectedApplication: not null } viewModel })
-                await new CheatWindow(
-                    viewModel.VirtualFileSystem,
-                    viewModel.SelectedApplication.IdString,
-                    viewModel.SelectedApplication.Name,
-                    viewModel.SelectedApplication.Path).ShowDialog((Window)viewModel.TopLevel);
+                await StyleableAppWindow.ShowAsync(
+                    new CheatWindow(
+                        viewModel.VirtualFileSystem,
+                        viewModel.SelectedApplication.IdString,
+                        viewModel.SelectedApplication.Name,
+                        viewModel.SelectedApplication.Path
+                    )
+                );
         }
 
         public void OpenModsDirectory_Click(object sender, RoutedEventArgs args)
@@ -391,9 +394,9 @@ namespace Ryujinx.Ava.UI.Controls
         {
             if (sender is MenuItem { DataContext: MainWindowViewModel { SelectedApplication: not null } viewModel })
             {
-                await new GameSpecificSettingsWindow(viewModel).ShowDialog((Window)viewModel.TopLevel);
+                await StyleableAppWindow.ShowAsync(new GameSpecificSettingsWindow(viewModel));
 
-                //just checking for file presence
+                // just checking for file presence
                 viewModel.SelectedApplication.HasIndependentConfiguration = File.Exists(Program.GetDirGameUserConfig(viewModel.SelectedApplication.IdString,false,false));
 
                 viewModel.RefreshView();

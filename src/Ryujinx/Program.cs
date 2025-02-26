@@ -158,16 +158,6 @@ namespace Ryujinx.Ava
             }
         }
 
-        public static bool FindGameConfig(string gameDir)
-        {
-            if (File.Exists(gameDir))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
         public static string GetDirGameUserConfig(string gameId, bool rememberGlobalDir = false, bool changeFolderForGame = false)
         {
             if (string.IsNullOrEmpty(gameId))
